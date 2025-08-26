@@ -33,3 +33,13 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server Started on port: ${port}`);
 });
+
+export default async function handler(req, res) {
+  try {
+    // your logic here
+    res.status(200).json({ success: true })
+  } catch (error) {
+    console.error('Function error:', error)
+    res.status(500).json({ error: 'Internal Server Error' })
+  }
+}
